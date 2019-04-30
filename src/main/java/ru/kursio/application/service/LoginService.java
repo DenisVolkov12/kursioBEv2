@@ -1,8 +1,10 @@
 package ru.kursio.application.service;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ru.kursio.application.model.entity.Role;
 import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.exception.InvalidUsernameException;
 import ru.kursio.application.model.exception.KursioException;
 import ru.kursio.application.model.pojo.AuthenticatedUser;
 import ru.kursio.application.model.pojo.ErrorDetails;
@@ -32,25 +34,21 @@ public class LoginService {
 
     private static Logger log = LoggerFactory.getLogger(LoginService.class.getName());
 
-    public Object doLogin(List<User> userList) {
+    public ResponseEntity<Object> doLogin(User user) {
 
-        if (userList == null) {
-            log.info("Failed in LoginService.doLogin(Customer customer)");
+        if (user == null) {
             throw new KursioException("There was invalid user or no user sent to perform a customer login check");
         }
-        if(userList.size() > 1)
-            throw new KursioException("You are sending more than one user to authenticate, please send only 1");
 
-        User user = userList.get(0);
+        try{
         User userFound = userService.getOneByUserName(user.getUserName());
-
-        if(userFound != null){
             if (!encoder.matches(user.getPassword(), userFound.getPassword()))
-                return new ErrorDetails("Incorrect Password", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>( new ErrorDetails(2, "Incorrect Password"), HttpStatus.BAD_REQUEST);
             loggedCustomer.setLoggedCustomerName(user.getUserName());
-            return userFound;
+            return new ResponseEntity<>(userFound, HttpStatus.OK);
+        }catch (InvalidUsernameException iue){
+            return new ResponseEntity<>( new ErrorDetails(1, "Incorrect Username"), HttpStatus.BAD_REQUEST);
         }
-        return new ErrorDetails("Incorrect Username", HttpStatus.NOT_FOUND);
     }
     
     public void doLogout() {

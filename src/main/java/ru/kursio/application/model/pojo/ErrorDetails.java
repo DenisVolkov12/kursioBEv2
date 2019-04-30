@@ -1,29 +1,27 @@
 package ru.kursio.application.model.pojo;
 
-import org.springframework.http.HttpStatus;
-
 public class ErrorDetails {
-    private String details;
-    private HttpStatus httpStatus;
+    private int errorCode;
+    private String errorDescription;
 
-    public ErrorDetails(String details, HttpStatus httpStatus) {
-        this.details = details;
-        this.httpStatus = httpStatus;
+    public ErrorDetails(int errorCode, String errorDescription) {
+        this.errorCode = errorCode;
+        this.errorDescription = errorDescription;
     }
 
-    public String getDetails() {
-        return details;
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
+    public String getErrorDescription() {
+        return errorDescription;
     }
 
-    public void setHttpStatus(HttpStatus httpStatus) {
-        this.httpStatus = httpStatus;
+    public void setErrorDescription(String errorDescription) {
+        this.errorDescription = errorDescription;
     }
 }

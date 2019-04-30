@@ -1,5 +1,7 @@
 package ru.kursio.application.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
 import ru.kursio.application.model.entity.Role;
@@ -9,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.kursio.application.model.exception.InvalidUsernameException;
 import ru.kursio.application.model.exception.KursioException;
+import ru.kursio.application.model.pojo.ErrorDetails;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -39,19 +43,21 @@ public class UserService {
 		userDao.save(user);
 	}
 
-	public User getOneByUserName(String userName) {
-		if (userName == null || userName.isEmpty()) {
-			log.error("Failed in CustomerService.getOneByUserName(String userName)");
-			throw new KursioException("Param ( String ) userName to find one customer came null or empty!");
-		}
-		Long foundUserId = userDao.findUserIdByUserName(userName);
-		if(foundUserId != null){
-			User found = getOneUserById(foundUserId);
-			if(found != null)
-				return found;
-		}
+	public User getOneByUserName(String userName) throws InvalidUsernameException {
+
+			if (userName == null || userName.isEmpty()) {
+				log.error("Failed in CustomerService.getOneByUserName(String userName)");
+				throw new KursioException("Param ( String ) userName to find one customer came null or empty!");
+			}
+			Long foundUserId = userDao.findUserIdByUserName(userName);
+			if (foundUserId != null) {
+				User found = getOneUserById(foundUserId);
+				if (found != null)
+					return found;
+			}
 		//User not found
-		throw new KursioException("User with username "+userName+" was not found");
+		throw new InvalidUsernameException("User with username "+userName+" was not found");
+
 	}
 
 	private User getOneUserById(Long userId) {

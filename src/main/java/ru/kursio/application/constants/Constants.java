@@ -9,4 +9,7 @@ public interface Constants {
     //ENDPOINTS
     String LOGIN_ROOT_PATH = "/v1/login";
     String USER_ROOT_PATH = "/v1/user";
+
+    //ERROR CODES
+
 }
