@@ -62,6 +62,11 @@ public class AuthService {
         }
     }
 
-
-
+    public ResponseEntity<Object> isEmailAvailable(String email) {
+        try {
+            return new ResponseEntity<>(!userService.isEmailExists(email), HttpStatus.OK);
+        } catch (InvalidParamException e) {
+            return new ResponseEntity<>(new ErrorDetails(MSG_EMPTY_USERNAME), HttpStatus.BAD_REQUEST);
+        }
+    }
 }

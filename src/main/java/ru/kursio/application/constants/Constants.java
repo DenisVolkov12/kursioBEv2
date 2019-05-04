@@ -22,6 +22,7 @@ public interface Constants {
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";
     String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";
+    String MSG_EMPTY_EMAIL = "Empty param: email was not sent";
 
     //ERROR CODES FOR USER
     String MSG_BAD_OR_EMPTY_JSON = "Bad or empty object sent";

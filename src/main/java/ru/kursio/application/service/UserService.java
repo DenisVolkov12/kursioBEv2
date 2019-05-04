@@ -73,4 +73,17 @@ public class UserService {
 		//Does not need validation since a false is expected to run username check
 		return found != null;
 	}
+
+	public boolean isEmailExists(String email) throws InvalidParamException  {
+
+		if (email == null || !ValidationUtil.stringIsNotEmpty(email)) {
+			throw new InvalidParamException(MSG_EMPTY_EMAIL);
+		}
+
+		User found = userDao.findByEmail(email);
+
+		//Does not need validation since a false is expected to run email check
+		return found != null;
+	}
 }
+

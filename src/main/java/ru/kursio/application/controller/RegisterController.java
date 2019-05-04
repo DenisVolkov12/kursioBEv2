@@ -34,6 +34,6 @@ public class RegisterController {
 	@PostMapping(CHECK_EMAIL)
 	@CrossOrigin
 	public ResponseEntity<Object> isEmailAvailable(@RequestBody @NotEmpty User user ) {
-		return authService.isUserNameAvailable(user.getUserName());
+		return authService.isEmailAvailable(user.getEmail());
 	}
 }
