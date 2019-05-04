@@ -46,11 +46,7 @@ public class UserService {
 		}
 	}
 
-	public User getOneByUserName(String userName) throws InvalidParamException, UserNotFoundException {
-
-			if (userName == null || userName.isEmpty()) {
-				throw new InvalidParamException(MSG_INVALID_PARAM);
-			}
+	public User getOneByUserName(String userName) throws UserNotFoundException {
 			User userFound = userDao.findByUserName(userName);
 			if(userFound == null)
 				throw new UserNotFoundException(MSG_USER_NOT_FOUND);
@@ -59,14 +55,13 @@ public class UserService {
 
 	public boolean isUserNameExists(String userName) throws InvalidParamException  {
 
-		if (userName == null || userName.isEmpty()) {
-			throw new InvalidParamException(MSG_INVALID_PARAM);
+		if (userName == null || !ValidationUtil.stringIsNotEmpty(userName)) {
+			throw new InvalidParamException(MSG_EMPTY_USERNAME);
 		}
 
 		User found = userDao.findByUserName(userName);
 
 		//Does not need validation since a false is expected to run username check
 		return found != null;
-
 	}
 }

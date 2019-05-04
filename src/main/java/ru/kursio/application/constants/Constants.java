@@ -15,8 +15,12 @@ public interface Constants {
     String REGISTER_ROOT_PATH = VERSION_ONE+"/register";
     String USER_ROOT_PATH = VERSION_ONE+"/user";
 
+    //SUB-ENDPOINTS
+    String CHECK_USERNAME = "/checkUsername";
+
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";
+    String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";
 
     //ERROR CODES FOR USER
     String MSG_BAD_OR_EMPTY_JSON = "Bad or empty object sent";
@@ -38,7 +42,7 @@ public interface Constants {
             put(MSG_USERNAME_NOT_FOUND, 5);
             put(MSG_ERROR_SAVING_USER, 6);
             put(MSG_USER_NOT_FOUND, 7);
-            put(MSG_INVALID_PARAM, 1000000);
+            put(MSG_EMPTY_USERNAME, 1000000);
 
         }
     };

@@ -38,8 +38,6 @@ public class AuthService {
 
         } catch (UserNotFoundException e) {
             return new ResponseEntity<>(new ErrorDetails(MSG_USER_NOT_FOUND), HttpStatus.BAD_REQUEST);
-        } catch (InvalidParamException e) {
-            return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -53,7 +51,16 @@ public class AuthService {
         } catch (InvalidParamException e) {
             return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
         }
-
     }
+
+    public ResponseEntity<Object> doUserNameCheck(String username) {
+        try {
+            return new ResponseEntity<>(userService.isUserNameExists(username), HttpStatus.OK);
+        } catch (InvalidParamException e) {
+            return new ResponseEntity<>(new ErrorDetails(MSG_EMPTY_USERNAME), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 
 }

@@ -7,8 +7,10 @@ import ru.kursio.application.model.entity.User;
 import ru.kursio.application.service.AuthService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import static ru.kursio.application.constants.Constants.CHECK_USERNAME;
 import static ru.kursio.application.constants.Constants.REGISTER_ROOT_PATH;
 
 @RestController
@@ -22,5 +24,11 @@ public class RegisterController {
 	@CrossOrigin
 	public ResponseEntity<Object> doLocalRegister(@RequestBody @Valid @NotNull User user) {
 		return authService.doLocalRegister(user);
+	}
+
+	@PostMapping(CHECK_USERNAME)
+	@CrossOrigin
+	public ResponseEntity<Object> doUserNameCheck(@RequestBody @NotEmpty User user ) {
+		return authService.doUserNameCheck(user.getUserName());
 	}
 }
