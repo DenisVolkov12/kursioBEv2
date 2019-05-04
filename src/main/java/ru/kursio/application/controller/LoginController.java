@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.pojo.LoginObject;
 import ru.kursio.application.service.AuthService;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -20,7 +21,7 @@ public class LoginController {
 
 	@PostMapping
 	@CrossOrigin
-	public ResponseEntity<Object> doLocalLogin(@RequestBody @Valid @NotNull User user) {
-		return authService.doLocalLogin(user);
+	public ResponseEntity<Object> doLocalLogin(@RequestBody @Valid @NotNull LoginObject creds) {
+		return authService.doLocalLogin(creds);
 	}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import ru.kursio.application.model.entity.User;
 import ru.kursio.application.model.exception.*;
 import ru.kursio.application.model.pojo.ErrorDetails;
+import ru.kursio.application.model.pojo.LoginObject;
 import ru.kursio.application.util.ValidationUtil;
 
 import static ru.kursio.application.constants.Constants.*;
@@ -25,14 +26,14 @@ public class AuthService {
 
     private static Logger log = LoggerFactory.getLogger(AuthService.class.getName());
 
-    public ResponseEntity<Object> doLocalLogin(User user) {
+    public ResponseEntity<Object> doLocalLogin(LoginObject creds) {
 
-        if (!ValidationUtil.objectIsNotNull(user))
+        if (!ValidationUtil.objectIsNotNull(creds))
             return new ResponseEntity<>(new ErrorDetails(MSG_BAD_OR_EMPTY_JSON), HttpStatus.BAD_REQUEST);
 
         try {
-            User userFound = userService.getOneByUserName(user.getUserName());
-            if (!encoder.matches(user.getPassword(), userFound.getPassword()))
+            User userFound = userService.getOneByUserName(creds.getUserName());
+            if (!encoder.matches(creds.getPassword(), userFound.getPassword()))
                 return new ResponseEntity<>(new ErrorDetails(MSG_INCORRECT_PASSWORD), HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(userFound, HttpStatus.OK);
 

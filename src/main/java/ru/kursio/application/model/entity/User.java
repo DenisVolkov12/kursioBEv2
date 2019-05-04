@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -18,17 +19,22 @@ public class User {
 	@Column(name = "user_id")
 	private Long userId;
 	@Column(name = "name")
+	@NotEmpty
 	private String name;
 	@Column(name = "last_name")
+	@NotEmpty
 	private String lastName;
 	@Column(name = "email")
+	@Email(message="Invalid email, check if it has @ and domain")
+	@NotEmpty
 	private String email;
 	@Column(name = "user_name")
-	@NotEmpty(message = "Username must not be empty")
+	@NotEmpty
 	private String userName;
 	@Column(name = "password")
 	private String password;
 	@Column(name = "active")
+	@JsonProperty
 	private boolean active;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -92,10 +98,12 @@ public class User {
 		this.email = email;
 	}
 
+	@JsonIgnore
 	public boolean isActive() {
 		return active;
 	}
 
+	@JsonProperty
 	public void setActive(boolean active) {
 		this.active = active;
 	}

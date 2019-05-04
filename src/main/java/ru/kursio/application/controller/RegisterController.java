@@ -10,8 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import static ru.kursio.application.constants.Constants.CHECK_USERNAME;
-import static ru.kursio.application.constants.Constants.REGISTER_ROOT_PATH;
+import static ru.kursio.application.constants.Constants.*;
 
 @RestController
 @RequestMapping(REGISTER_ROOT_PATH)
@@ -29,6 +28,12 @@ public class RegisterController {
 	@PostMapping(CHECK_USERNAME)
 	@CrossOrigin
 	public ResponseEntity<Object> isUserNameAvailable(@RequestBody @NotEmpty User user ) {
+		return authService.isUserNameAvailable(user.getUserName());
+	}
+
+	@PostMapping(CHECK_EMAIL)
+	@CrossOrigin
+	public ResponseEntity<Object> isEmailAvailable(@RequestBody @NotEmpty User user ) {
 		return authService.isUserNameAvailable(user.getUserName());
 	}
 }

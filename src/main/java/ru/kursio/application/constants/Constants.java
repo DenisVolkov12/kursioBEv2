@@ -17,6 +17,7 @@ public interface Constants {
 
     //SUB-ENDPOINTS
     String CHECK_USERNAME = "/isUsernameAvailable";
+    String CHECK_EMAIL = "/isEmailAvailable";
 
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";
