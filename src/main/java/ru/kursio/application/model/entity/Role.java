@@ -9,8 +9,8 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="role_id")
 	private Long id;
-	@Column(name="role")
-	private String role;
+	@Column(name="role_type")
+	private String roleType;
 
 	public Long getId() {
 		return id;
@@ -20,10 +20,11 @@ public class Role {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
+	public String getRoleType() {
+		return roleType;
 	}
-	public void setRole(String role) {
-		this.role = role;
+
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
 	}
 }

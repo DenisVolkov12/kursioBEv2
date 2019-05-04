@@ -1,28 +1,25 @@
 package ru.kursio.application.service;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import ru.kursio.application.dao.RoleDao;
-import ru.kursio.application.dao.UserDao;
-import ru.kursio.application.model.entity.Role;
-import ru.kursio.application.model.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.kursio.application.model.exception.InvalidUsernameException;
-import ru.kursio.application.model.exception.KursioException;
-import ru.kursio.application.model.pojo.ErrorDetails;
+import ru.kursio.application.dao.RoleDao;
+import ru.kursio.application.dao.UserDao;
+import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.exception.InvalidParamException;
+import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
+import ru.kursio.application.model.exception.UserNotFoundException;
+import ru.kursio.application.util.ValidationUtil;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
+
+import static ru.kursio.application.constants.Constants.*;
 
 @Service
 public class UserService {
 
-	// The Logger for User Service
 	private static Logger log = LoggerFactory.getLogger(UserService.class.getName());
 
 	@Autowired
@@ -34,36 +31,42 @@ public class UserService {
 		return userDao.findAll();
 	}
 
-	public void saveUser(User user) {
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setActive(1);
-		Role customerRole = roleDao.findByRole("ADMIN");
-		user.setRoles(new HashSet<Role>(Arrays.asList(customerRole)));
-		userDao.save(user);
+	public User saveUser(User user) throws UserNameAlreadyExistsException, InvalidParamException{
+		try{
+		if(!isUserNameExists(user.getUserName())) {
+			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			user.setActive(true);
+			return userDao.save(user);
+
+		}
+		throw new UserNameAlreadyExistsException(MSG_USERNAME_ALREADY_EXISTS);
+		}catch (InvalidParamException ipe){
+			throw new InvalidParamException(MSG_INVALID_PARAM);
+		}
 	}
 
-	public User getOneByUserName(String userName) throws InvalidUsernameException {
+	public User getOneByUserName(String userName) throws InvalidParamException, UserNotFoundException {
 
 			if (userName == null || userName.isEmpty()) {
-				log.error("Failed in CustomerService.getOneByUserName(String userName)");
-				throw new KursioException("Param ( String ) userName to find one customer came null or empty!");
+				throw new InvalidParamException(MSG_INVALID_PARAM);
 			}
-			Long foundUserId = userDao.findUserIdByUserName(userName);
-			if (foundUserId != null) {
-				User found = getOneUserById(foundUserId);
-				if (found != null)
-					return found;
-			}
-		//User not found
-		throw new InvalidUsernameException("User with username "+userName+" was not found");
-
+			User userFound = userDao.findByUserName(userName);
+			if(userFound == null)
+				throw new UserNotFoundException(MSG_USER_NOT_FOUND);
+			return userFound;
 	}
 
-	private User getOneUserById(Long userId) {
-		if(userId != null){
-			return userDao.getOne(userId);
+	public boolean isUserNameExists(String userName) throws InvalidParamException  {
+
+		if (userName == null || userName.isEmpty()) {
+			throw new InvalidParamException(MSG_INVALID_PARAM);
 		}
-		throw new KursioException("User not Found!");
+
+		User found = userDao.findByUserName(userName);
+
+		//Does not need validation since a false is expected to run username check
+		return found != null;
+
 	}
 }

@@ -1,12 +1,17 @@
 package ru.kursio.application.model.pojo;
 
+import ru.kursio.application.constants.Constants;
+
+import java.util.Map;
+
 public class ErrorDetails {
     private int errorCode;
     private String errorDescription;
 
-    public ErrorDetails(int errorCode, String errorDescription) {
-        this.errorCode = errorCode;
-        this.errorDescription = errorDescription;
+    public ErrorDetails(String constantErrorString) {
+        Map errorsMap = Constants.ERRORS_MAP;
+        this.errorCode = (Integer) errorsMap.get(constantErrorString);
+        this.errorDescription = constantErrorString;
     }
 
     public int getErrorCode() {

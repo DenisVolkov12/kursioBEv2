@@ -1,5 +1,8 @@
 package ru.kursio.application.constants;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This are the Global Constants, the idea is to do Standardization of values and be able to use them across
  * the development. Be sure that variables and values can be re-usable everywhere in the application.
@@ -7,9 +10,38 @@ package ru.kursio.application.constants;
  */
 public interface Constants {
     //ENDPOINTS
-    String LOGIN_ROOT_PATH = "/v1/login";
-    String USER_ROOT_PATH = "/v1/user";
+    String VERSION_ONE = "/v1";
+    String LOGIN_ROOT_PATH = VERSION_ONE+"/login";
+    String REGISTER_ROOT_PATH = VERSION_ONE+"/register";
+    String USER_ROOT_PATH = VERSION_ONE+"/user";
 
-    //ERROR CODES
+    //ERROR CODES FOR DEV
+    String MSG_INVALID_PARAM = "Invalid params sent";
+
+    //ERROR CODES FOR USER
+    String MSG_BAD_OR_EMPTY_JSON = "Bad or empty object sent";
+    String MSG_INCORRECT_USERNAME = "Incorrect Username";
+    String MSG_INCORRECT_PASSWORD = "Incorrect Password";
+    String MSG_USERNAME_ALREADY_EXISTS = "Username already exists, please choose other";
+    String MSG_USERNAME_NOT_FOUND = "Username not found";
+    String MSG_ERROR_SAVING_USER = "Error saving User";
+    String MSG_USER_NOT_FOUND = "User not found";
+
+    //ERROR MAP
+    Map<String, Integer> ERRORS_MAP = new HashMap<String, Integer>()
+    {
+        {
+            put(MSG_BAD_OR_EMPTY_JSON, 1);
+            put(MSG_INCORRECT_USERNAME, 2);
+            put(MSG_INCORRECT_PASSWORD, 3);
+            put(MSG_USERNAME_ALREADY_EXISTS, 4);
+            put(MSG_USERNAME_NOT_FOUND, 5);
+            put(MSG_ERROR_SAVING_USER, 6);
+            put(MSG_USER_NOT_FOUND, 7);
+            put(MSG_INVALID_PARAM, 1000000);
+
+        }
+    };
+
 
 }

@@ -5,22 +5,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kursio.application.model.entity.User;
 import ru.kursio.application.service.AuthService;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-
-import static ru.kursio.application.constants.Constants.LOGIN_ROOT_PATH;
+import static ru.kursio.application.constants.Constants.REGISTER_ROOT_PATH;
 
 @RestController
-@RequestMapping(LOGIN_ROOT_PATH)
-public class LoginController {
+@RequestMapping(REGISTER_ROOT_PATH)
+public class RegisterController {
 
 	@Autowired
 	private AuthService authService;
 
 	@PostMapping
 	@CrossOrigin
-	public ResponseEntity<Object> doLocalLogin(@RequestBody @Valid @NotNull User user) {
-		return authService.doLocalLogin(user);
+	public ResponseEntity<Object> doLocalRegister(@RequestBody @Valid @NotNull User user) {
+		return authService.doLocalRegister(user);
 	}
 }

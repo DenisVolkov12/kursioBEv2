@@ -4,23 +4,23 @@ package ru.kursio.application.model.exception;
  * This is the wrapper to Throw custom Exceptions to use in developed try / catches
  * regarding what can happen in the logic fails and map error occurs in the code development.
  */
-public class IncorrectPasswordException extends Exception {
+public class SavingUserException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
-    public IncorrectPasswordException() {
+    public SavingUserException() {
         super();
     }
 
-    public IncorrectPasswordException(String message, Throwable cause) {
+    public SavingUserException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public IncorrectPasswordException(String message) {
+    public SavingUserException(String message) {
         super(message);
     }
 
-    public IncorrectPasswordException(Throwable cause) {
+    public SavingUserException(Throwable cause) {
         super(cause);
     }
 }

@@ -4,7 +4,7 @@ package ru.kursio.application.model.exception;
  * This is the wrapper to Throw custom Exceptions to use in developed try / catches
  * regarding what can happen in the logic fails and map error occurs in the code development.
  */
-public class InvalidUsernameException extends RuntimeException {
+public class InvalidUsernameException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
