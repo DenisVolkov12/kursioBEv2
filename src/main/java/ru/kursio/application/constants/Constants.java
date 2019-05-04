@@ -16,7 +16,7 @@ public interface Constants {
     String USER_ROOT_PATH = VERSION_ONE+"/user";
 
     //SUB-ENDPOINTS
-    String CHECK_USERNAME = "/checkUsername";
+    String CHECK_USERNAME = "/isUsernameAvailable";
 
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";

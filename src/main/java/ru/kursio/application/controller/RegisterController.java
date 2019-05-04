@@ -28,7 +28,7 @@ public class RegisterController {
 
 	@PostMapping(CHECK_USERNAME)
 	@CrossOrigin
-	public ResponseEntity<Object> doUserNameCheck(@RequestBody @NotEmpty User user ) {
-		return authService.doUserNameCheck(user.getUserName());
+	public ResponseEntity<Object> isUserNameAvailable(@RequestBody @NotEmpty User user ) {
+		return authService.isUserNameAvailable(user.getUserName());
 	}
 }
