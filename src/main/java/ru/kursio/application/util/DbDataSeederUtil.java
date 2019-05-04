@@ -47,7 +47,7 @@ public class DbDataSeederUtil implements CommandLineRunner {
         // SINGLE ROLE CASE
         Role role2 = new Role();
         Set<Role> hRoles2 = new HashSet<>();
-        role2.setRoleType("CUSTOMER");
+        role2.setRoleType("STUDENT");
         hRoles2.add(role2);
 
         // DOUBLE ROLE CASE

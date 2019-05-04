@@ -7,13 +7,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
+import ru.kursio.application.model.entity.Role;
 import ru.kursio.application.model.entity.User;
 import ru.kursio.application.model.exception.InvalidParamException;
 import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
 import ru.kursio.application.model.exception.UserNotFoundException;
 import ru.kursio.application.util.ValidationUtil;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static ru.kursio.application.constants.Constants.*;
 
@@ -37,6 +40,12 @@ public class UserService {
 			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			user.setActive(true);
+			//Set by default role Student
+			Role role = new Role();
+			Set<Role> hRoles = new HashSet<>();
+			role.setRoleType("STUDENT");
+			hRoles.add(role);
+			user.setRoles(hRoles);
 			return userDao.save(user);
 
 		}
