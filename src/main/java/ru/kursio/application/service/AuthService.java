@@ -74,6 +74,6 @@ public class AuthService {
     }
 
     public ResponseEntity<Object> doFacebookLogin(FacebookUser facebookUser){
-        return  null;
+        return new ResponseEntity<>(userService.doFacebookLogin(facebookUser), HttpStatus.OK);
     }
 }

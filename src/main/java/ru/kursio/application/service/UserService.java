@@ -1,5 +1,6 @@
 package ru.kursio.application.service;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,10 @@ import ru.kursio.application.model.exception.EmailAlreadyExistsException;
 import ru.kursio.application.model.exception.InvalidParamException;
 import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
 import ru.kursio.application.model.exception.UserNotFoundException;
+import ru.kursio.application.model.pojo.facebook.FacebookUser;
 import ru.kursio.application.util.ValidationUtil;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,12 +48,7 @@ public class UserService {
 				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 				user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 				user.setActive(true);
-				//Set by default role Student
-				Role role = new Role();
-				Set<Role> hRoles = new HashSet<>();
-				role.setRoleType("STUDENT");
-				hRoles.add(role);
-				user.setRoles(hRoles);
+				user.setRoles(this.getDefaultStudentRoleSet());
 				return userDao.save(user);
 			}
 			throw new UserNameAlreadyExistsException(MSG_USERNAME_ALREADY_EXISTS);
@@ -66,6 +64,13 @@ public class UserService {
 			return userFound;
 	}
 
+	public User getOneByEmail(String email) throws UserNotFoundException {
+		User userFound = userDao.findByEmail(email);
+		if(userFound == null)
+			throw new UserNotFoundException(MSG_USER_NOT_FOUND);
+		return userFound;
+	}
+
 	public boolean isUserNameExists(String userName) throws InvalidParamException  {
 
 		if (userName == null || !ValidationUtil.stringIsNotEmpty(userName)) {
@@ -78,6 +83,24 @@ public class UserService {
 		return found != null;
 	}
 
+	public Set<Role> getDefaultStudentRoleSet(){
+		//Set by default role Student
+		return getRoles(STUDENT_ROLE);
+	}
+
+	public Set<Role> getDefaultTeacherRoleSet(){
+		//Set by default role Student
+		return getRoles(TEACHER_ROLE);
+	}
+
+	private Set<Role> getRoles(String teacherRole) {
+		Role role = new Role();
+		Set<Role> hRoles = new HashSet<>();
+		role.setRoleType(teacherRole);
+		hRoles.add(role);
+		return hRoles;
+	}
+
 	public boolean isEmailExists(String email) throws InvalidParamException  {
 
 		if (email == null || !ValidationUtil.stringIsNotEmpty(email)) {
@@ -88,6 +111,23 @@ public class UserService {
 
 		//Does not need validation since a false is expected to run email check
 		return found != null;
+	}
+
+	public User doFacebookLogin(FacebookUser fbUser) {
+		try {
+			return getOneByEmail(fbUser.getEmail());
+		} catch (UserNotFoundException e) {
+			User user = new User();
+			String []fullName = fbUser.getName().split(WHITE_SPACE);
+			user.setName(fullName[0]);
+			user.setLastName(fullName[1]);
+			user.setEmail(fbUser.getEmail());
+			user.setActive(true);
+			user.setUserName(fbUser.getEmail());
+			//Set by default role Student
+			user.setRoles(this.getDefaultStudentRoleSet());
+			return userDao.save(user);
+		}
 	}
 }
 

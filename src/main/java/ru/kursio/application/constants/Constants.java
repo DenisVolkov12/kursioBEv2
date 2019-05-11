@@ -20,6 +20,14 @@ public interface Constants {
     String CHECK_EMAIL = "/isEmailAvailable";
     String LOGIN_FACEBOOK = "/facebook";
 
+    //ROLES
+    String STUDENT_ROLE = "STUDENT";
+    String TEACHER_ROLE = "TEACHER";
+
+    //SYMBOLS AND CHARACTERS
+    String WHITE_SPACE = " ";
+
+
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";
     String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";

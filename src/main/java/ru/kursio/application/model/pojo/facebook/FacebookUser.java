@@ -20,7 +20,7 @@ public class FacebookUser implements Serializable
     @JsonProperty("email")
     private String email;
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("picture")
@@ -38,12 +38,12 @@ public class FacebookUser implements Serializable
     }
 
     @JsonProperty("id")
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
     @JsonProperty("id")
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
