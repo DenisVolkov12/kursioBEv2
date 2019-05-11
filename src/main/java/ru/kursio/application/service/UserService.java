@@ -9,6 +9,7 @@ import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
 import ru.kursio.application.model.entity.Role;
 import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.exception.EmailAlreadyExistsException;
 import ru.kursio.application.model.exception.InvalidParamException;
 import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
 import ru.kursio.application.model.exception.UserNotFoundException;
@@ -34,22 +35,25 @@ public class UserService {
 		return userDao.findAll();
 	}
 
-	public User saveUser(User user) throws UserNameAlreadyExistsException, InvalidParamException{
+	public User saveUser(User user) throws UserNameAlreadyExistsException, InvalidParamException, EmailAlreadyExistsException {
 		try{
-		if(!isUserNameExists(user.getUserName())) {
-			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-			user.setActive(true);
-			//Set by default role Student
-			Role role = new Role();
-			Set<Role> hRoles = new HashSet<>();
-			role.setRoleType("STUDENT");
-			hRoles.add(role);
-			user.setRoles(hRoles);
-			return userDao.save(user);
 
-		}
-		throw new UserNameAlreadyExistsException(MSG_USERNAME_ALREADY_EXISTS);
+			if(isEmailExists(user.getEmail())) {
+				throw new EmailAlreadyExistsException(MSG_EMAIL_ALREADY_EXISTS);
+			}
+			if(!isUserNameExists(user.getUserName()) ) {
+				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+				user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+				user.setActive(true);
+				//Set by default role Student
+				Role role = new Role();
+				Set<Role> hRoles = new HashSet<>();
+				role.setRoleType("STUDENT");
+				hRoles.add(role);
+				user.setRoles(hRoles);
+				return userDao.save(user);
+			}
+			throw new UserNameAlreadyExistsException(MSG_USERNAME_ALREADY_EXISTS);
 		}catch (InvalidParamException ipe){
 			throw new InvalidParamException(MSG_INVALID_PARAM);
 		}

@@ -24,11 +24,11 @@ public class User {
 	@Column(name = "last_name")
 	@NotEmpty
 	private String lastName;
-	@Column(name = "email")
+	@Column(name = "email", unique=true, nullable=false)
 	@Email(message="Invalid email, check if it has @ and domain")
 	@NotEmpty
 	private String email;
-	@Column(name = "user_name")
+	@Column(name = "user_name", unique=true, nullable=false)
 	@NotEmpty
 	private String userName;
 	@Column(name = "password")

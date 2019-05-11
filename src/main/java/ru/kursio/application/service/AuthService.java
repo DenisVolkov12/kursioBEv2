@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import ru.kursio.application.model.entity.User;
 import ru.kursio.application.model.exception.*;
 import ru.kursio.application.model.pojo.ErrorDetails;
-import ru.kursio.application.model.pojo.LoginObject;
+import ru.kursio.application.model.pojo.LocalLoginUser;
+import ru.kursio.application.model.pojo.facebook.FacebookUser;
 import ru.kursio.application.util.ValidationUtil;
 
 import static ru.kursio.application.constants.Constants.*;
@@ -26,7 +27,7 @@ public class AuthService {
 
     private static Logger log = LoggerFactory.getLogger(AuthService.class.getName());
 
-    public ResponseEntity<Object> doLocalLogin(LoginObject creds) {
+    public ResponseEntity<Object> doLocalLogin(LocalLoginUser creds) {
 
         if (!ValidationUtil.objectIsNotNull(creds))
             return new ResponseEntity<>(new ErrorDetails(MSG_BAD_OR_EMPTY_JSON), HttpStatus.BAD_REQUEST);
@@ -51,6 +52,8 @@ public class AuthService {
             return new ResponseEntity<>(new ErrorDetails(MSG_USERNAME_ALREADY_EXISTS), HttpStatus.BAD_REQUEST);
         } catch (InvalidParamException e) {
             return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
+        } catch (EmailAlreadyExistsException e) {
+            return new ResponseEntity<>(new ErrorDetails(MSG_EMAIL_ALREADY_EXISTS), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -68,5 +71,9 @@ public class AuthService {
         } catch (InvalidParamException e) {
             return new ResponseEntity<>(new ErrorDetails(MSG_EMPTY_USERNAME), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    public ResponseEntity<Object> doFacebookLogin(FacebookUser facebookUser){
+        return  null;
     }
 }

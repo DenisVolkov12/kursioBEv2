@@ -18,6 +18,7 @@ public interface Constants {
     //SUB-ENDPOINTS
     String CHECK_USERNAME = "/isUsernameAvailable";
     String CHECK_EMAIL = "/isEmailAvailable";
+    String LOGIN_FACEBOOK = "/facebook";
 
     //ERROR CODES FOR DEV
     String MSG_INVALID_PARAM = "Invalid params sent";
@@ -29,6 +30,7 @@ public interface Constants {
     String MSG_INCORRECT_USERNAME = "Incorrect Username";
     String MSG_INCORRECT_PASSWORD = "Incorrect Password";
     String MSG_USERNAME_ALREADY_EXISTS = "Username already exists, please choose other";
+    String MSG_EMAIL_ALREADY_EXISTS = "Email already exists, please choose other";
     String MSG_USERNAME_NOT_FOUND = "Username not found";
     String MSG_ERROR_SAVING_USER = "Error saving User";
     String MSG_USER_NOT_FOUND = "User not found";
@@ -44,6 +46,7 @@ public interface Constants {
             put(MSG_USERNAME_NOT_FOUND, 5);
             put(MSG_ERROR_SAVING_USER, 6);
             put(MSG_USER_NOT_FOUND, 7);
+            put(MSG_EMAIL_ALREADY_EXISTS, 8);
             put(MSG_EMPTY_USERNAME, 1000000);
 
         }

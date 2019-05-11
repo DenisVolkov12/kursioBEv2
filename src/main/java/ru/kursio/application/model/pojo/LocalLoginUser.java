@@ -2,7 +2,7 @@ package ru.kursio.application.model.pojo;
 
 import javax.validation.constraints.NotEmpty;
 
-public class LoginObject {
+public class LocalLoginUser {
     @NotEmpty
     private String userName;
     @NotEmpty
