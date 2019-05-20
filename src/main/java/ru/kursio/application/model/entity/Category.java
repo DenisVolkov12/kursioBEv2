@@ -1,6 +1,8 @@
 package ru.kursio.application.model.entity;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -12,6 +14,10 @@ public class Category {
 
     @Column(name = "category_name", nullable = false)
     private String categoryName;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "category_subcategory", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "subcategory_id"))
+    private List<SubCategory> subcategories;
 
     public long getCategoryId() {
         return categoryId;
@@ -27,5 +33,13 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<SubCategory> getSubcategories() {
+        return subcategories;
+    }
+
+    public void setSubcategories(List<SubCategory> subcategories) {
+        this.subcategories = subcategories;
     }
 }
