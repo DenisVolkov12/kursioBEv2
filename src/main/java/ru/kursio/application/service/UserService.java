@@ -1,6 +1,5 @@
 package ru.kursio.application.service;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
-import ru.kursio.application.model.entity.Role;
-import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.entity.auth.Role;
+import ru.kursio.application.model.entity.auth.User;
 import ru.kursio.application.model.exception.EmailAlreadyExistsException;
 import ru.kursio.application.model.exception.InvalidParamException;
 import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
@@ -17,7 +16,6 @@ import ru.kursio.application.model.exception.UserNotFoundException;
 import ru.kursio.application.model.pojo.facebook.FacebookUser;
 import ru.kursio.application.util.ValidationUtil;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

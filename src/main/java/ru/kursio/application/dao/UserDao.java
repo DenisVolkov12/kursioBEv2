@@ -1,9 +1,7 @@
 package ru.kursio.application.dao;
 
-import ru.kursio.application.model.entity.Role;
-import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.entity.auth.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository

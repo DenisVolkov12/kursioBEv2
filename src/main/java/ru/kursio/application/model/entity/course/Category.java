@@ -1,8 +1,7 @@
-package ru.kursio.application.model.entity;
+package ru.kursio.application.model.entity.course;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "category")

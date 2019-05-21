@@ -1,4 +1,4 @@
-package ru.kursio.application.model.entity;
+package ru.kursio.application.model.entity.course;
 
 import javax.persistence.*;
 

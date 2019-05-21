@@ -2,8 +2,8 @@ package ru.kursio.application.util;
 
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
-import ru.kursio.application.model.entity.Role;
-import ru.kursio.application.model.entity.User;
+import ru.kursio.application.model.entity.auth.Role;
+import ru.kursio.application.model.entity.auth.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -85,12 +85,21 @@ public class DbDataSeederUtil implements CommandLineRunner {
 
         User user3 = new User();
         user3.setActive(true);
-        user3.setName("Jaime");
-        user3.setLastName("Escobar");
-        user3.setEmail("milloescobar@gmail.com");
-        user3.setUserName("jescobar");
+        user3.setName("Renat");
+        user3.setLastName("Kashapov");
+        user3.setEmail("Renat.kashapov@hotmail.com");
+        user3.setUserName("rkashapov");
         user3.setPassword(encoder.encode("12345"));
         user3.setRoles(hRoles3);
+
+        User user4 = new User();
+        user4.setActive(true);
+        user4.setName("Jaime");
+        user4.setLastName("Escobar");
+        user4.setEmail("milloescobar@gmail.com");
+        user4.setUserName("jescobar");
+        user4.setPassword(encoder.encode("12345"));
+        user4.setRoles(hRoles3);
 
         // Drop all Users
         userDao.deleteAll();

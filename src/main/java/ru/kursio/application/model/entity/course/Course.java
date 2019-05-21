@@ -1,6 +1,7 @@
-package ru.kursio.application.model.entity;
+package ru.kursio.application.model.entity.course;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ru.kursio.application.model.entity.auth.User;
 
 import javax.persistence.*;
 import java.util.List;
