@@ -13,6 +13,12 @@ public class ColorQuizAnswer {
     @Column(name = "answer", nullable = false)
     private String answer;
 
+    @Column(name = "color", nullable = false)
+    private String color;
+
+    @Column(name = "direction", nullable = false)
+    private String direction;
+
     public long getColorQuizAnswerId() {
         return colorQuizAnswerId;
     }
@@ -27,6 +33,22 @@ public class ColorQuizAnswer {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 }
 

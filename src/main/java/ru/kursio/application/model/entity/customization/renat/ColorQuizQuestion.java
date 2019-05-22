@@ -14,12 +14,6 @@ public class ColorQuizQuestion {
     @Column(name = "question", nullable = false)
     private String question;
 
-    @Column(name = "color", nullable = false)
-    private String color;
-
-    @Column(name = "direction", nullable = false)
-    private String direction;
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "color_quiz_question_color_quiz_answer", joinColumns = @JoinColumn(name = "color_quiz_question_id"), inverseJoinColumns = @JoinColumn(name = "color_quiz_answer_id"))
     private Set<ColorQuizAnswer> answers;
@@ -38,22 +32,6 @@ public class ColorQuizQuestion {
 
     public void setQuestion(String question) {
         this.question = question;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
     }
 
     public Set<ColorQuizAnswer> getAnswers() {

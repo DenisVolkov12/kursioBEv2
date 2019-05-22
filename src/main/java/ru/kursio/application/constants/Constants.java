@@ -14,11 +14,13 @@ public interface Constants {
     String LOGIN_ROOT_PATH = VERSION_ONE+"/login";
     String REGISTER_ROOT_PATH = VERSION_ONE+"/register";
     String USER_ROOT_PATH = VERSION_ONE+"/user";
+    String RENAT_ROOT_PATH = VERSION_ONE+"/renat";
 
     //SUB-ENDPOINTS
     String CHECK_USERNAME = "/isUsernameAvailable";
     String CHECK_EMAIL = "/isEmailAvailable";
     String LOGIN_FACEBOOK = "/facebook";
+    String COLOR_QUIZ = "/colorQuiz";
 
     //ROLES
     String STUDENT_ROLE = "STUDENT";
@@ -32,6 +34,7 @@ public interface Constants {
     String MSG_INVALID_PARAM = "Invalid params sent";
     String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";
     String MSG_EMPTY_EMAIL = "Empty param: email was not sent";
+    String MSG_RENAT_QUESTIONARY_NOT_FOUND = "No questions found";
 
     //ERROR CODES FOR USER
     String MSG_BAD_OR_EMPTY_JSON = "Bad or empty object sent";

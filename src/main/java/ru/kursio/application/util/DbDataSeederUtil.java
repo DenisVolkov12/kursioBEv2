@@ -1,5 +1,6 @@
 package ru.kursio.application.util;
 
+import ru.kursio.application.dao.RenatQuizDao;
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
 import ru.kursio.application.model.entity.auth.Role;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import ru.kursio.application.model.entity.customization.renat.ColorQuizQuestion;
+import ru.kursio.application.util.defaultFactory.QuizFactory;
 
 import javax.transaction.Transactional;
 import java.util.Arrays;
@@ -28,6 +31,9 @@ public class DbDataSeederUtil implements CommandLineRunner {
 
     @Autowired
     RoleDao roleDao;
+
+    @Autowired
+    RenatQuizDao renatQuizDao;
 
     @Autowired
     BCryptPasswordEncoder encoder;
@@ -107,5 +113,9 @@ public class DbDataSeederUtil implements CommandLineRunner {
         // Add our Users to the Database
         List<User> users = Arrays.asList(user1, user2, user3);
         userDao.saveAll(users);
+
+        //RENAT QUIZ
+        List<ColorQuizQuestion> questions = new QuizFactory().createQuiz("RENAT_COLOR_QUIZ");
+        renatQuizDao.saveAll(questions);
     }
 }
