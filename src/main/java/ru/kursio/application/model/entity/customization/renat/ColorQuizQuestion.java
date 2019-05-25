@@ -11,7 +11,7 @@ public class ColorQuizQuestion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long colorQuestionId;
 
-    @Column(name = "question", nullable = false)
+    @Column(name = "question")
     private String question;
 
     @ManyToMany(cascade = CascadeType.ALL)

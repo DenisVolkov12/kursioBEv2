@@ -13,16 +13,14 @@ import ru.kursio.application.dao.UserDao;
 import ru.kursio.application.model.entity.auth.Role;
 import ru.kursio.application.model.entity.auth.User;
 import ru.kursio.application.model.entity.customization.renat.ColorQuizQuestion;
-import ru.kursio.application.model.exception.EmailAlreadyExistsException;
-import ru.kursio.application.model.exception.InvalidParamException;
-import ru.kursio.application.model.exception.UserNameAlreadyExistsException;
-import ru.kursio.application.model.exception.UserNotFoundException;
+import ru.kursio.application.model.exception.*;
 import ru.kursio.application.model.pojo.ErrorDetails;
 import ru.kursio.application.model.pojo.facebook.FacebookUser;
 import ru.kursio.application.util.ValidationUtil;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static ru.kursio.application.constants.Constants.*;
@@ -35,10 +33,39 @@ public class RenatQuizService {
 	@Autowired
 	private RenatQuizDao renatQuizDao;
 
-	public ResponseEntity<Object> list() {
-		if(ValidationUtil.objectIsNotNull(renatQuizDao.findAll()))
+	public ResponseEntity<Object> findAll() {
+		List<ColorQuizQuestion> questions = renatQuizDao.findAll();
+		if(ValidationUtil.objectIsNotNull(questions))
 			return new ResponseEntity<>(renatQuizDao.findAll(), HttpStatus.OK);
 		return new ResponseEntity<>(new ErrorDetails(MSG_RENAT_QUESTIONARY_NOT_FOUND), HttpStatus.BAD_REQUEST);
+	}
+
+	private ColorQuizQuestion findById(Long id) throws InvalidParamException, NotFoundException {
+		if(!ValidationUtil.objectIsNotNull(id))
+			throw new InvalidParamException(MSG_INVALID_PARAM);
+		Optional<ColorQuizQuestion> question = renatQuizDao.findById(id);
+		return question.orElseThrow(NotFoundException::new);
+	}
+
+	public ResponseEntity<Object> save(ColorQuizQuestion question){
+		if(!ValidationUtil.objectIsNotNull(question))
+			return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
+		ColorQuizQuestion savedQuestion = renatQuizDao.save(question);
+		if(ValidationUtil.objectIsNotNull(savedQuestion))
+			return new ResponseEntity<>(savedQuestion, HttpStatus.OK);
+		return new ResponseEntity<>(new ErrorDetails(MSG_RENAT_QUESTIONARY_NOT_FOUND), HttpStatus.BAD_REQUEST);
+	}
+
+	public ResponseEntity<Object> deleteById(Long id){
+		try {
+			this.findById(id);
+		} catch (InvalidParamException e) {
+			return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
+		} catch (NotFoundException e) {
+			return new ResponseEntity<>(new ErrorDetails(MSG_QUESTION_NOT_FOUND), HttpStatus.BAD_REQUEST);
+		}
+		renatQuizDao.deleteById(id);
+		return new ResponseEntity<>(true, HttpStatus.BAD_REQUEST);
 	}
 }
 

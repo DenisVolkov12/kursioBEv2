@@ -31,7 +31,7 @@ public interface Constants {
 
 
     //ERROR CODES FOR DEV
-    String MSG_INVALID_PARAM = "Invalid params sent";
+    String MSG_INVALID_PARAM = "Invalid param(s) sent";
     String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";
     String MSG_EMPTY_EMAIL = "Empty param: email was not sent";
     String MSG_RENAT_QUESTIONARY_NOT_FOUND = "No questions found";
@@ -45,6 +45,7 @@ public interface Constants {
     String MSG_USERNAME_NOT_FOUND = "Username not found";
     String MSG_ERROR_SAVING_USER = "Error saving User";
     String MSG_USER_NOT_FOUND = "User not found";
+    String MSG_QUESTION_NOT_FOUND = "Question not found";
 
     //ERROR MAP
     Map<String, Integer> ERRORS_MAP = new HashMap<String, Integer>()
@@ -59,6 +60,7 @@ public interface Constants {
             put(MSG_USER_NOT_FOUND, 7);
             put(MSG_EMAIL_ALREADY_EXISTS, 8);
             put(MSG_EMPTY_USERNAME, 1000000);
+            put(MSG_QUESTION_NOT_FOUND, 1000001);
 
         }
     };
