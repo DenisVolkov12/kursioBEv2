@@ -32,7 +32,7 @@ public class RenatQuizController {
 
 	@DeleteMapping(COLOR_QUIZ)
 	@CrossOrigin
-	public ResponseEntity<Object> deleteColorQuizQuestionById(Long id) {
-		return renatQuizService.deleteById(id);
+	public ResponseEntity<Object> deleteColorQuizQuestionById(@RequestBody @Valid ColorQuizQuestion question) {
+		return renatQuizService.deleteById(question.getColorQuestionId());
 	}
 }
