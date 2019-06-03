@@ -1,6 +1,9 @@
 package ru.kursio.application.model.entity.customization.renat;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.kursio.application.model.entity.auth.User;
 
 @Entity
@@ -11,10 +14,10 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long couponId;
 
-    @Column(name = "has_been_used", nullable = false)
+    @Column(name = "has_been_used")
     private boolean hasBeenUsed;
 
-    @Column(name = "coupon_code", unique=true, nullable = false)
+    @Column(name = "coupon_code", unique=true)
     private String couponCode;
 
     @OneToOne
@@ -24,6 +27,8 @@ public class Coupon {
     public long getCouponId() {
         return couponId;
     }
+
+    private String email;
 
     public void setCouponId(long couponId) {
         this.couponId = couponId;
@@ -45,12 +50,21 @@ public class Coupon {
         this.couponCode = couponCode;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getEmail() {
+        return user.getEmail();
+    }
+
+    public void setEmail(String email) {
+        this.email = user.getEmail();
     }
 }
 
