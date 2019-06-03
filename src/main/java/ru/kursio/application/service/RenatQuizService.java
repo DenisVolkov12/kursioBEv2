@@ -33,7 +33,7 @@ public class RenatQuizService {
 	@Autowired
 	private RenatQuizDao renatQuizDao;
 
-	public ResponseEntity<Object> findAll() {
+	public ResponseEntity<Object> findAllColorQuizQuestions() {
 		List<ColorQuizQuestion> questions = renatQuizDao.findAll();
 		if(ValidationUtil.objectIsNotNull(questions))
 			return new ResponseEntity<>(renatQuizDao.findAll(), HttpStatus.OK);
@@ -47,7 +47,7 @@ public class RenatQuizService {
 		return question.orElseThrow(NotFoundException::new);
 	}
 
-	public ResponseEntity<Object> save(ColorQuizQuestion question){
+	public ResponseEntity<Object> saveQuestion(ColorQuizQuestion question){
 		if(!ValidationUtil.objectIsNotNull(question))
 			return new ResponseEntity<>(new ErrorDetails(MSG_INVALID_PARAM), HttpStatus.BAD_REQUEST);
 		ColorQuizQuestion savedQuestion = renatQuizDao.save(question);
@@ -56,7 +56,7 @@ public class RenatQuizService {
 		return new ResponseEntity<>(new ErrorDetails(MSG_RENAT_QUESTIONARY_NOT_FOUND), HttpStatus.BAD_REQUEST);
 	}
 
-	public ResponseEntity<Object> deleteById(Long id){
+	public ResponseEntity<Object> deleteQuestionById(Long id){
 		try {
 			this.findById(id);
 		} catch (InvalidParamException e) {

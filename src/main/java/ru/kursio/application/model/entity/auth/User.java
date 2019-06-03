@@ -2,7 +2,6 @@ package ru.kursio.application.model.entity.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.kursio.application.model.entity.auth.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

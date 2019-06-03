@@ -21,6 +21,8 @@ public interface Constants {
     String CHECK_EMAIL = "/isEmailAvailable";
     String LOGIN_FACEBOOK = "/facebook";
     String COLOR_QUIZ = "/colorQuiz";
+    String COUPON = "/coupon";
+    String HAS_BEEN_USED = COUPON+"/hasBeenUsed";
 
     //ROLES
     String STUDENT_ROLE = "STUDENT";
@@ -35,6 +37,7 @@ public interface Constants {
     String MSG_EMPTY_USERNAME = "Empty param: userName was not sent";
     String MSG_EMPTY_EMAIL = "Empty param: email was not sent";
     String MSG_RENAT_QUESTIONARY_NOT_FOUND = "No questions found";
+    String MSG_RENAT_COUPONS_NOT_FOUND = "No coupons found";
 
     //ERROR CODES FOR USER
     String MSG_BAD_OR_EMPTY_JSON = "Bad or empty object sent";
@@ -46,6 +49,7 @@ public interface Constants {
     String MSG_ERROR_SAVING_USER = "Error saving User";
     String MSG_USER_NOT_FOUND = "User not found";
     String MSG_QUESTION_NOT_FOUND = "Question not found";
+    String MSG_COUPON_NOT_FOUND = "Coupon not found";
 
     //ERROR MAP
     Map<String, Integer> ERRORS_MAP = new HashMap<String, Integer>()
@@ -61,7 +65,9 @@ public interface Constants {
             put(MSG_EMAIL_ALREADY_EXISTS, 8);
             put(MSG_EMPTY_USERNAME, 1000000);
             put(MSG_QUESTION_NOT_FOUND, 1000001);
-
+            put(MSG_RENAT_QUESTIONARY_NOT_FOUND, 1000002);
+            put(MSG_COUPON_NOT_FOUND, 1000003);
+            put(MSG_RENAT_COUPONS_NOT_FOUND, 1000004);
         }
     };
 

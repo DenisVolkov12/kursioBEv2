@@ -1,5 +1,6 @@
 package ru.kursio.application.util;
 
+import ru.kursio.application.dao.RenatCouponDao;
 import ru.kursio.application.dao.RenatQuizDao;
 import ru.kursio.application.dao.RoleDao;
 import ru.kursio.application.dao.UserDao;
@@ -10,6 +11,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.kursio.application.model.entity.customization.renat.ColorQuizQuestion;
+import ru.kursio.application.model.entity.customization.renat.Coupon;
+import ru.kursio.application.service.RenatCouponService;
+import ru.kursio.application.util.defaultFactory.CouponFactory;
 import ru.kursio.application.util.defaultFactory.QuizFactory;
 
 import javax.transaction.Transactional;
@@ -34,6 +38,12 @@ public class DbDataSeederUtil implements CommandLineRunner {
 
     @Autowired
     RenatQuizDao renatQuizDao;
+
+    @Autowired
+    RenatCouponDao renatCouponDao;
+
+    @Autowired
+    RenatCouponService renatCouponService;
 
     @Autowired
     BCryptPasswordEncoder encoder;
@@ -111,11 +121,16 @@ public class DbDataSeederUtil implements CommandLineRunner {
         userDao.deleteAll();
 
         // Add our Users to the Database
-        List<User> users = Arrays.asList(user1, user2, user3);
-        userDao.saveAll(users);
+        List<User> users = Arrays.asList(user1, user2, user3, user4);
+        List<User> savedUsers = userDao.saveAll(users);
 
         //RENAT QUIZ
         List<ColorQuizQuestion> questions = new QuizFactory().createQuiz("RENAT_COLOR_QUIZ");
         renatQuizDao.saveAll(questions);
+
+        //RENAT COUPONS
+        List<Coupon> coupons = new CouponFactory().createCoupons("RENAT_COUPON", savedUsers, renatCouponService);
+        renatCouponDao.saveAll(coupons);
+
     }
 }
