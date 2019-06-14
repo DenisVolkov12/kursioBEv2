@@ -23,6 +23,7 @@ public interface Constants {
     String COLOR_QUIZ = "/colorQuiz";
     String COUPON = "/coupon";
     String HAS_BEEN_USED = COUPON+"/hasBeenUsed";
+    String GET_ONE_USER_BY_ID = "/getById";
 
     //ROLES
     String STUDENT_ROLE = "STUDENT";
