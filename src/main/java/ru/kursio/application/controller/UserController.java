@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(GET_ONE_USER_BY_ID)
+	@PostMapping(GET_ONE_USER_BY_ID)
 	@CrossOrigin
 	public ResponseEntity<Object> getOneUserById(@RequestBody User user) {
 		return userService.findUserById(user.getUserId());
