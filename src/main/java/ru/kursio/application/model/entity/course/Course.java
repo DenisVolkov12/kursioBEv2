@@ -36,8 +36,8 @@ public class Course {
     @Column(name = "level")
     private String level;
 
-    @Column(name = "course_header_image")
-    private String course_header_image;
+    @Column(name = "course_image")
+    private String course_image;
 
     @Lob
     @Column(name = "course_description")
@@ -108,12 +108,12 @@ public class Course {
         this.level = level;
     }
 
-    public String getCourse_header_image() {
-        return course_header_image;
+    public String getCourse_image() {
+        return course_image;
     }
 
-    public void setCourse_header_image(String course_header_image) {
-        this.course_header_image = course_header_image;
+    public void setCourse_image(String course_image) {
+        this.course_image = course_image;
     }
 
     public String getCourseDescription() {

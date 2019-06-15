@@ -33,6 +33,12 @@ public class User {
 	@Column(name = "active")
 	@JsonProperty
 	private boolean active;
+	@Column(name = "instagram_url")
+	private String instagramUrl;
+	@Column(name = "facebook_url")
+	private String facebookUrl;
+	@Column(name = "linkedin_url")
+	private String linkedInUrl;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
@@ -103,5 +109,29 @@ public class User {
 	@JsonProperty
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public String getInstagramUrl() {
+		return instagramUrl;
+	}
+
+	public void setInstagramUrl(String instagramUrl) {
+		this.instagramUrl = instagramUrl;
+	}
+
+	public String getFacebookUrl() {
+		return facebookUrl;
+	}
+
+	public void setFacebookUrl(String facebookUrl) {
+		this.facebookUrl = facebookUrl;
+	}
+
+	public String getLinkedInUrl() {
+		return linkedInUrl;
+	}
+
+	public void setLinkedInUrl(String linkedInUrl) {
+		this.linkedInUrl = linkedInUrl;
 	}
 }
