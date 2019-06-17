@@ -1,24 +1,23 @@
-package ru.kursio.application.model.entity.course;
+package ru.kursio.application.model.entity.ranking;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ru.kursio.application.model.entity.auth.User;
+import ru.kursio.application.model.entity.course.Category;
+import ru.kursio.application.model.entity.course.Review;
+import ru.kursio.application.model.entity.enumeration.RankingStar;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "course")
+@Table(name = "courseRating")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Course {
+public class CourseRating {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "course_id")
+    @Column(name = "courseRatingId")
     private Long courseId;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @Column(name = "course_title")
     private String courseTitle;
@@ -58,14 +57,6 @@ public class Course {
 
     public void setCourseId(Long courseId) {
         this.courseId = courseId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getCourseTitle() {
@@ -147,6 +138,4 @@ public class Course {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
-
-
 }

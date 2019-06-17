@@ -2,10 +2,12 @@ package ru.kursio.application.model.entity.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.kursio.application.model.entity.course.Course;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,6 +32,15 @@ public class User {
 	private String userName;
 	@Column(name = "password")
 	private String password;
+	@Lob
+	@Column(name = "about_me")
+	private String aboutMe;
+	@Column(name = "designation")
+	private String designation;
+	@Column(name = "avatar")
+	private String avatar;
+	@Column(name="rating_average")
+	private double ratingAverage;
 	@Column(name = "active")
 	@JsonProperty
 	private boolean active;
@@ -42,6 +53,13 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+
+	@OneToMany(mappedBy="user")
+	private List<Course> createdCourses;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+	private List<Course> userCourses;
 
 	public Long getUserId() {
 		return userId;
@@ -133,5 +151,55 @@ public class User {
 
 	public void setLinkedInUrl(String linkedInUrl) {
 		this.linkedInUrl = linkedInUrl;
+	}
+
+	public String getAboutMe() {
+		return aboutMe;
+	}
+
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	@JsonIgnore
+	public List<Course> getUserCourses() {
+		return userCourses;
+	}
+
+	public void setUserCourses(List<Course> userCourses) {
+		this.userCourses = userCourses;
+	}
+
+	@JsonIgnore
+	public List<Course> getCreatedCourses() {
+		return createdCourses;
+	}
+
+	public void setCreatedCourses(List<Course> createdCourses) {
+		this.createdCourses = createdCourses;
+	}
+
+	public double getRatingAverage() {
+		return ratingAverage;
+	}
+
+	public void setRatingAverage(double ratingAverage) {
+		this.ratingAverage = ratingAverage;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 }
