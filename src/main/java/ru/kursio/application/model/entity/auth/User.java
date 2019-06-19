@@ -61,6 +61,9 @@ public class User {
 	@JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
 	private List<Course> userCourses;
 
+	@Column(name="is_teacher")
+    private boolean isTeacher;
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -202,4 +205,12 @@ public class User {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+
+    public boolean isTeacher() {
+        return isTeacher;
+    }
+
+    public void setIsTeacher(boolean teacher) {
+        isTeacher = teacher;
+    }
 }

@@ -108,23 +108,11 @@ public class DbDataSeederUtil implements CommandLineRunner {
         user3.setUserName("rkashapov");
         user3.setPassword(encoder.encode("12345"));
         user3.setRoles(hRoles3);
-        user3.setAboutMe("<p>\"The science of personality\" course</p>"+
-                "<p>Renat Kashapov - certified trainer, expert on \"The Theory of Internal Motive Motive\" created by Dr. Taylor Hartman, </p>" +
-                "<p>\"The science of personality\" is a practical course of self-knowledge. It was created especially for you if:</p>" +
-                "<ul>" +
-                "<li>It's hard for you to decide what you really want.</li>" +
-                "<li>You want to understand others from a half-word, and not guessing</li>" +
-                "<li>It seems to you that relationships often do not give a person complete freedom</li>" +
-                "<li>You feel you don't know much about your potential.</li>" +
-                "</ul>" +
-                "<p>Renat Kashapov, a professional coach for personal development, in his course will help you:</p>" +
-                "<ul>" +
-                "<li>To understand yourself, outline a development plan</li>" +
-                "<li>To learn  right communication technologies and start building effective relationships without irritation but with wisdom and benefit</li>" +
-                "<li>To recognize the needs and desires of a partner, strengthening relationships</li>" +
-                "<li>To open your life motive working with  which will help you to increase the success of your life multiple times.</li>" +
-                "</ul>");
+        user3.setAboutMe("Renat Kashapov - certified trainer, expert on \"The Theory of Internal Motive Motive\" created by Dr. Taylor Hartman. He" +
+                "has workded as professional coach for personal development");
         user3.setDesignation("Certified Trainer");
+        user3.setIsTeacher(true);
+
         user3.setRatingAverage(5);
         user3.setFacebookUrl("https://www.facebook.com/cashupoff");
         user3.setLinkedInUrl("https://www.linkedin.com/in/cashupoff/");
