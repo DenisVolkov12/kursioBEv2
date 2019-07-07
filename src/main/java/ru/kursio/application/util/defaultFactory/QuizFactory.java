@@ -138,218 +138,216 @@ public class QuizFactory {
     }
 
     private Set<ColorQuizAnswer> generateSetOfAnswerRenat(int questionNumber){
-        Set createdSet = new HashSet();
-        switch(questionNumber) {
-            case 1:
-                ColorQuizAnswer a1 = createColorQuizAnswer("proactive", "red", "positive");
-                ColorQuizAnswer a2 = createColorQuizAnswer("nurturing", "blue", "positive");
-                ColorQuizAnswer a3 = createColorQuizAnswer("objective", "white", "positive");
-                ColorQuizAnswer a4 = createColorQuizAnswer("insightful", "yellow", "positive");
-                return new HashSet<>(Arrays.asList(a1, a2, a3, a4));
-                
-            case 2:
-                ColorQuizAnswer a5 = createColorQuizAnswer("indecisive", "white", "negative");
-                ColorQuizAnswer a6 = createColorQuizAnswer("arrogant", "red", "negative");
-                ColorQuizAnswer a7 = createColorQuizAnswer("a perfectionist", "blue", "negative");
-                ColorQuizAnswer a8 = createColorQuizAnswer("poor follow through", "yellow", "negative");
-                return new HashSet<>(Arrays.asList(a5, a6, a7, a8));
-                
-            case 3:
-                ColorQuizAnswer a9 = createColorQuizAnswer("enthusiastic", "yellow", "positive");
-                ColorQuizAnswer a10 = createColorQuizAnswer("kind", "white", "positive");
-                ColorQuizAnswer a11 = createColorQuizAnswer("caring", "blue", "positive");
-                ColorQuizAnswer a12 = createColorQuizAnswer("productive", "red", "positive");
-                return new HashSet<>(Arrays.asList(a9, a10, a11, a12));
-                
-            case 4:
-                ColorQuizAnswer a13 = createColorQuizAnswer("relentless", "red", "negative");
-                ColorQuizAnswer a14 = createColorQuizAnswer("suspicious", "blue", "negative");
-                ColorQuizAnswer a15 = createColorQuizAnswer("indifferent", "white", "negative");
-                ColorQuizAnswer a16 = createColorQuizAnswer("naive", "yellow", "negative");
-                return new HashSet<>(Arrays.asList(a13, a14, a15, a16));
-                
-            case 5:
-                ColorQuizAnswer a17 = createColorQuizAnswer("peaceful", "white", "positive");
-                ColorQuizAnswer a18 = createColorQuizAnswer("carefree", "yellow", "positive");
-                ColorQuizAnswer a19 = createColorQuizAnswer("decisive", "red", "positive");
-                ColorQuizAnswer a20 = createColorQuizAnswer("loyal", "blue", "positive");
-                return new HashSet<>(Arrays.asList(a17, a18, a19, a20));
-                
-            case 6:
-                ColorQuizAnswer a21 = createColorQuizAnswer("silently stubborn", "white", "negative");
-                ColorQuizAnswer a22 = createColorQuizAnswer("worry prone", "blue", "negative");
-                ColorQuizAnswer a23 = createColorQuizAnswer("an interupter", "yellow", "negative");
-                ColorQuizAnswer a24 = createColorQuizAnswer("obsessive", "red", "negative");
-                return new HashSet<>(Arrays.asList(a21, a22, a23, a24));
-                
-            case 7:
-                ColorQuizAnswer a25 = createColorQuizAnswer("sociable", "yellow", "positive");
-                ColorQuizAnswer a26 = createColorQuizAnswer("assertive", "red", "positive");
-                ColorQuizAnswer a27 = createColorQuizAnswer("intimate", "blue", "positive");
-                ColorQuizAnswer a28 = createColorQuizAnswer("non-discriminate", "white", "positive");
-                return new HashSet<>(Arrays.asList(a25, a26, a27, a28));
-                
-            case 8:
-                ColorQuizAnswer a29 = createColorQuizAnswer("self-critical", "blue", "negative");
-                ColorQuizAnswer a30 = createColorQuizAnswer("bossy", "red", "negative");
-                ColorQuizAnswer a31 = createColorQuizAnswer("unfocused", "yellow", "negative");
-                ColorQuizAnswer a32 = createColorQuizAnswer("avoids conflict", "white", "negative");
-                return new HashSet<>(Arrays.asList(a29, a30, a31, a32));
-                
-            case 9:
-                ColorQuizAnswer a33 = createColorQuizAnswer("voice of reason", "white", "positive");
-                ColorQuizAnswer a34 = createColorQuizAnswer("flexible", "yellow", "positive");
-                ColorQuizAnswer a35 = createColorQuizAnswer("action-oriented", "red", "positive");
-                ColorQuizAnswer a36 = createColorQuizAnswer("analytical", "blue", "positive");
-                return new HashSet<>(Arrays.asList(a33, a34, a35, a36));
-                
-            case 10:
-                ColorQuizAnswer a37 = createColorQuizAnswer("critical of others", "red", "negative");
-                ColorQuizAnswer a38 = createColorQuizAnswer("disinterested", "white", "negative");
-                ColorQuizAnswer a39 = createColorQuizAnswer("overly sensitive", "blue", "negative");
-                ColorQuizAnswer a40 = createColorQuizAnswer("irresponsible", "yellow", "negative");
-                return new HashSet<>(Arrays.asList(a37, a38, a39, a40));
-            
-            case 11:
-                ColorQuizAnswer a41 = createColorQuizAnswer("determined", "red", "positive");
-                ColorQuizAnswer a42 = createColorQuizAnswer("thoughtful", "blue", "positive");
-                ColorQuizAnswer a43 = createColorQuizAnswer("a good listener", "white", "positive");
-                ColorQuizAnswer a44 = createColorQuizAnswer("trusting", "yellow", "positive");
-                return new HashSet<>(Arrays.asList(a41, a42, a43, a44));
-                
-            case 12:
-                ColorQuizAnswer a45 = createColorQuizAnswer("lazy", "white", "negative");
-                ColorQuizAnswer a46 = createColorQuizAnswer("vain", "yellow", "negative");
-                ColorQuizAnswer a47 = createColorQuizAnswer("demanding", "red", "negative");
-                ColorQuizAnswer a48 = createColorQuizAnswer("unforgiving", "blue", "negative");
-                return new HashSet<>(Arrays.asList(a45, a46, a47, a48));
-                
-            case 13:
-                ColorQuizAnswer a49 = createColorQuizAnswer("happy", "yellow", "positive");
-                ColorQuizAnswer a50 = createColorQuizAnswer("compasionate", "blue", "positive");
-                ColorQuizAnswer a51 = createColorQuizAnswer("inventive", "white", "positive");
-                ColorQuizAnswer a52 = createColorQuizAnswer("responsible", "red", "positive");
-                return new HashSet<>(Arrays.asList(a49, a50, a51, a52));
-                
-            case 14:
-                ColorQuizAnswer a53 = createColorQuizAnswer("impulsive", "yellow", "negative");
-                ColorQuizAnswer a54 = createColorQuizAnswer("impatient", "red", "negative");
-                ColorQuizAnswer a55 = createColorQuizAnswer("moody", "blue", "negative");
-                ColorQuizAnswer a56 = createColorQuizAnswer("indirect communicator", "white", "negative");
-                return new HashSet<>(Arrays.asList(a53, a54, a55, a56));
-                
-            case 15:
-                ColorQuizAnswer a57 = createColorQuizAnswer("a leader", "red", "positive");
-                ColorQuizAnswer a58 = createColorQuizAnswer("patient", "white", "positive");
-                ColorQuizAnswer a59 = createColorQuizAnswer("fun-loving", "yellow", "positive");
-                ColorQuizAnswer a60 = createColorQuizAnswer("respectful", "blue", "positive");
-                return new HashSet<>(Arrays.asList(a57, a58, a59, a60));
-                
-            case 16:
-                ColorQuizAnswer a61 = createColorQuizAnswer("jealous", "blue", "negative");
-                ColorQuizAnswer a62 = createColorQuizAnswer("reluctant", "white", "negative");
-                ColorQuizAnswer a63 = createColorQuizAnswer("argumentative", "red", "negative");
-                ColorQuizAnswer a64 = createColorQuizAnswer("obnoxious", "yellow", "negative");
-                return new HashSet<>(Arrays.asList(a61, a62, a63, a64));
-                
-            case 17:
-                ColorQuizAnswer a65 = createColorQuizAnswer("even-tempered", "white", "positive");
-                ColorQuizAnswer a66 = createColorQuizAnswer("engaging", "yellow", "positive");
-                ColorQuizAnswer a67 = createColorQuizAnswer("dependable", "blue", "positive");
-                ColorQuizAnswer a68 = createColorQuizAnswer("focused", "red", "positive");
-                return new HashSet<>(Arrays.asList(a65, a66, a67, a68));
-                
-            case 18:
-                ColorQuizAnswer a69 = createColorQuizAnswer("overly aggressive", "red", "negative");
-                ColorQuizAnswer a70 = createColorQuizAnswer("low self-esteem", "blue", "negative");
-                ColorQuizAnswer a71 = createColorQuizAnswer("ambivalent", "white", "negative");
-                ColorQuizAnswer a72 = createColorQuizAnswer("inconsistent", "yellow", "negative");
-                return new HashSet<>(Arrays.asList(a69, a70, a71, a72));
-                
-            case 19:
-                ColorQuizAnswer a73 = createColorQuizAnswer("deliberate", "blue", "positive");
-                ColorQuizAnswer a74 = createColorQuizAnswer("powerful", "red", "positive");
-                ColorQuizAnswer a75 = createColorQuizAnswer("balanced", "white", "positive");
-                ColorQuizAnswer a76 = createColorQuizAnswer("persuasive", "yellow", "positive");
-                return new HashSet<>(Arrays.asList(a73, a74, a75, a76));
-                
-            case 20:
-                ColorQuizAnswer a77 = createColorQuizAnswer("undisciplined", "yellow", "negative");
-                ColorQuizAnswer a78 = createColorQuizAnswer("timid", "white", "negative");
-                ColorQuizAnswer a79 = createColorQuizAnswer("insensitive", "red", "negative");
-                ColorQuizAnswer a80 = createColorQuizAnswer("judgmental", "blue", "negative");
-                return new HashSet<>(Arrays.asList(a77, a78, a79, a80));
-                
-            case 21:
-                ColorQuizAnswer a81 = createColorQuizAnswer("playful", "yellow", "positive");
-                ColorQuizAnswer a82 = createColorQuizAnswer("clear perspective", "white", "positive");
-                ColorQuizAnswer a83 = createColorQuizAnswer("detail conscious", "blue", "positive");
-                ColorQuizAnswer a84 = createColorQuizAnswer("clear perspective", "red", "positive");
-                return new HashSet<>(Arrays.asList(a81, a82, a83, a84));
-                
-            case 22:
-                ColorQuizAnswer a85 = createColorQuizAnswer("always right", "red", "negative");
-                ColorQuizAnswer a86 = createColorQuizAnswer("uncommitted", "yellow", "negative");
-                ColorQuizAnswer a87 = createColorQuizAnswer("uninvolved", "white", "negative");
-                ColorQuizAnswer a88 = createColorQuizAnswer("guilt prone", "blue", "negative");
-                return new HashSet<>(Arrays.asList(a85, a86, a87, a88));
-                
-            case 23:
-                ColorQuizAnswer a89 = createColorQuizAnswer("accepting", "white", "positive");
-                ColorQuizAnswer a90 = createColorQuizAnswer("spontaneous", "yellow", "positive");
-                ColorQuizAnswer a91 = createColorQuizAnswer("pragmatic", "red", "positive");
-                ColorQuizAnswer a92 = createColorQuizAnswer("well-mannered", "blue", "positive");
-                return new HashSet<>(Arrays.asList(a89, a90, a91, a92));
-                
-            case 24:
-                ColorQuizAnswer a93 = createColorQuizAnswer("disorganized", "yellow", "negative");
-                ColorQuizAnswer a94 = createColorQuizAnswer("selfish", "red", "negative");
-                ColorQuizAnswer a95 = createColorQuizAnswer("emotionaly intense", "blue", "negative");
-                ColorQuizAnswer a96 = createColorQuizAnswer("detached", "white", "negative");
-                return new HashSet<>(Arrays.asList(a93, a94, a95, a96));
-                
-            case 25:
-                ColorQuizAnswer a97 = createColorQuizAnswer("motivated", "red", "positive");
-                ColorQuizAnswer a98 = createColorQuizAnswer("sincere", "blue", "positive");
-                ColorQuizAnswer a99 = createColorQuizAnswer("diplomatic", "white", "positive");
-                ColorQuizAnswer a100 = createColorQuizAnswer("engaging of others", "yellow", "positive");
-                return new HashSet<>(Arrays.asList(a97, a98, a99, a100));
-                
-            case 26:
-                ColorQuizAnswer a101 = createColorQuizAnswer("forgetful", "yellow", "negative");
-                ColorQuizAnswer a102 = createColorQuizAnswer("boring", "white", "negative");
-                ColorQuizAnswer a103 = createColorQuizAnswer("hard to please", "blue", "negative");
-                ColorQuizAnswer a104 = createColorQuizAnswer("tactless", "red", "negative");
-                return new HashSet<>(Arrays.asList(a101, a102, a103, a104));
-                
-            case 27:
-                ColorQuizAnswer a105 = createColorQuizAnswer("articulate", "red", "positive");
-                ColorQuizAnswer a106 = createColorQuizAnswer("quality-oriented", "blue", "positive");
-                ColorQuizAnswer a107 = createColorQuizAnswer("centered", "white", "positive");
-                ColorQuizAnswer a108 = createColorQuizAnswer("forgiving", "yellow", "positive");
-                return new HashSet<>(Arrays.asList(a105, a106, a107, a108));
-                
-            case 28:
-                ColorQuizAnswer a109 = createColorQuizAnswer("self-centered", "yellow", "negative");
-                ColorQuizAnswer a110 = createColorQuizAnswer("calculating", "red", "negative");
-                ColorQuizAnswer a111 = createColorQuizAnswer("self-righteous", "blue", "negative");
-                ColorQuizAnswer a112 = createColorQuizAnswer("unexpressive", "white", "negative");
-                return new HashSet<>(Arrays.asList(a109, a110, a111, a112));
-                
-            case 29:
-                ColorQuizAnswer a113 = createColorQuizAnswer("self-regulated", "white", "positive");
-                ColorQuizAnswer a114 = createColorQuizAnswer("charismatic", "yellow", "positive");
-                ColorQuizAnswer a115 = createColorQuizAnswer("confident", "red", "positive");
-                ColorQuizAnswer a116 = createColorQuizAnswer("intuitive", "blue", "positive");
-                return new HashSet<>(Arrays.asList(a113, a114, a115, a116));
-                
-            case 30:
-                ColorQuizAnswer a117 = createColorQuizAnswer("unrealistic expectations", "blue", "negative");
-                ColorQuizAnswer a118 = createColorQuizAnswer("unproductive", "white", "negative");
-                ColorQuizAnswer a119 = createColorQuizAnswer("afraid to face facts", "yellow", "negative");
-                ColorQuizAnswer a120 = createColorQuizAnswer("intimidating", "red", "negative");
-                return new HashSet<>(Arrays.asList(a117, a118, a119, a120));
-                
+        if(questionNumber ==  1) {
+            ColorQuizAnswer a1 = createColorQuizAnswer("proactive", "red", "positive");
+            ColorQuizAnswer a2 = createColorQuizAnswer("nurturing", "blue", "positive");
+            ColorQuizAnswer a3 = createColorQuizAnswer("objective", "white", "positive");
+            ColorQuizAnswer a4 = createColorQuizAnswer("insightful", "yellow", "positive");
+            return new HashSet<>(Arrays.asList(a1, a2, a3, a4));
+        }
+
+        if(questionNumber == 2){
+            ColorQuizAnswer a5 = createColorQuizAnswer("indecisive", "white", "negative");
+            ColorQuizAnswer a6 = createColorQuizAnswer("arrogant", "red", "negative");
+            ColorQuizAnswer a7 = createColorQuizAnswer("a perfectionist", "blue", "negative");
+            ColorQuizAnswer a8 = createColorQuizAnswer("poor follow through", "yellow", "negative");
+            return new HashSet<>(Arrays.asList(a5, a6, a7, a8));
+
+        }if(questionNumber == 3){
+            ColorQuizAnswer a9 = createColorQuizAnswer("enthusiastic", "yellow", "positive");
+            ColorQuizAnswer a10 = createColorQuizAnswer("kind", "white", "positive");
+            ColorQuizAnswer a11 = createColorQuizAnswer("caring", "blue", "positive");
+            ColorQuizAnswer a12 = createColorQuizAnswer("productive", "red", "positive");
+            return new HashSet<>(Arrays.asList(a9, a10, a11, a12));
+
+        }if(questionNumber == 4){
+            ColorQuizAnswer a13 = createColorQuizAnswer("relentless", "red", "negative");
+            ColorQuizAnswer a14 = createColorQuizAnswer("suspicious", "blue", "negative");
+            ColorQuizAnswer a15 = createColorQuizAnswer("indifferent", "white", "negative");
+            ColorQuizAnswer a16 = createColorQuizAnswer("naive", "yellow", "negative");
+            return new HashSet<>(Arrays.asList(a13, a14, a15, a16));
+
+        }if(questionNumber == 5){
+            ColorQuizAnswer a17 = createColorQuizAnswer("peaceful", "white", "positive");
+            ColorQuizAnswer a18 = createColorQuizAnswer("carefree", "yellow", "positive");
+            ColorQuizAnswer a19 = createColorQuizAnswer("decisive", "red", "positive");
+            ColorQuizAnswer a20 = createColorQuizAnswer("loyal", "blue", "positive");
+            return new HashSet<>(Arrays.asList(a17, a18, a19, a20));
+
+        }if(questionNumber == 6){
+            ColorQuizAnswer a21 = createColorQuizAnswer("silently stubborn", "white", "negative");
+            ColorQuizAnswer a22 = createColorQuizAnswer("worry prone", "blue", "negative");
+            ColorQuizAnswer a23 = createColorQuizAnswer("an interupter", "yellow", "negative");
+            ColorQuizAnswer a24 = createColorQuizAnswer("obsessive", "red", "negative");
+            return new HashSet<>(Arrays.asList(a21, a22, a23, a24));
+
+        }if(questionNumber == 7){
+            ColorQuizAnswer a25 = createColorQuizAnswer("sociable", "yellow", "positive");
+            ColorQuizAnswer a26 = createColorQuizAnswer("assertive", "red", "positive");
+            ColorQuizAnswer a27 = createColorQuizAnswer("intimate", "blue", "positive");
+            ColorQuizAnswer a28 = createColorQuizAnswer("non-discriminate", "white", "positive");
+            return new HashSet<>(Arrays.asList(a25, a26, a27, a28));
+
+        }if(questionNumber == 8){
+            ColorQuizAnswer a29 = createColorQuizAnswer("self-critical", "blue", "negative");
+            ColorQuizAnswer a30 = createColorQuizAnswer("bossy", "red", "negative");
+            ColorQuizAnswer a31 = createColorQuizAnswer("unfocused", "yellow", "negative");
+            ColorQuizAnswer a32 = createColorQuizAnswer("avoids conflict", "white", "negative");
+            return new HashSet<>(Arrays.asList(a29, a30, a31, a32));
+
+        }if(questionNumber == 9){
+            ColorQuizAnswer a33 = createColorQuizAnswer("voice of reason", "white", "positive");
+            ColorQuizAnswer a34 = createColorQuizAnswer("flexible", "yellow", "positive");
+            ColorQuizAnswer a35 = createColorQuizAnswer("action-oriented", "red", "positive");
+            ColorQuizAnswer a36 = createColorQuizAnswer("analytical", "blue", "positive");
+            return new HashSet<>(Arrays.asList(a33, a34, a35, a36));
+
+        }if(questionNumber == 10){
+            ColorQuizAnswer a37 = createColorQuizAnswer("critical of others", "red", "negative");
+            ColorQuizAnswer a38 = createColorQuizAnswer("disinterested", "white", "negative");
+            ColorQuizAnswer a39 = createColorQuizAnswer("overly sensitive", "blue", "negative");
+            ColorQuizAnswer a40 = createColorQuizAnswer("irresponsible", "yellow", "negative");
+            return new HashSet<>(Arrays.asList(a37, a38, a39, a40));
+
+        }if(questionNumber == 11){
+            ColorQuizAnswer a41 = createColorQuizAnswer("determined", "red", "positive");
+            ColorQuizAnswer a42 = createColorQuizAnswer("thoughtful", "blue", "positive");
+            ColorQuizAnswer a43 = createColorQuizAnswer("a good listener", "white", "positive");
+            ColorQuizAnswer a44 = createColorQuizAnswer("trusting", "yellow", "positive");
+            return new HashSet<>(Arrays.asList(a41, a42, a43, a44));
+
+        }if(questionNumber == 12){
+            ColorQuizAnswer a45 = createColorQuizAnswer("lazy", "white", "negative");
+            ColorQuizAnswer a46 = createColorQuizAnswer("vain", "yellow", "negative");
+            ColorQuizAnswer a47 = createColorQuizAnswer("demanding", "red", "negative");
+            ColorQuizAnswer a48 = createColorQuizAnswer("unforgiving", "blue", "negative");
+            return new HashSet<>(Arrays.asList(a45, a46, a47, a48));
+
+        }if(questionNumber == 13){
+            ColorQuizAnswer a49 = createColorQuizAnswer("happy", "yellow", "positive");
+            ColorQuizAnswer a50 = createColorQuizAnswer("compasionate", "blue", "positive");
+            ColorQuizAnswer a51 = createColorQuizAnswer("inventive", "white", "positive");
+            ColorQuizAnswer a52 = createColorQuizAnswer("responsible", "red", "positive");
+            return new HashSet<>(Arrays.asList(a49, a50, a51, a52));
+
+        }if(questionNumber == 14){
+            ColorQuizAnswer a53 = createColorQuizAnswer("impulsive", "yellow", "negative");
+            ColorQuizAnswer a54 = createColorQuizAnswer("impatient", "red", "negative");
+            ColorQuizAnswer a55 = createColorQuizAnswer("moody", "blue", "negative");
+            ColorQuizAnswer a56 = createColorQuizAnswer("indirect communicator", "white", "negative");
+            return new HashSet<>(Arrays.asList(a53, a54, a55, a56));
+
+        }if(questionNumber == 15){
+            ColorQuizAnswer a57 = createColorQuizAnswer("a leader", "red", "positive");
+            ColorQuizAnswer a58 = createColorQuizAnswer("patient", "white", "positive");
+            ColorQuizAnswer a59 = createColorQuizAnswer("fun-loving", "yellow", "positive");
+            ColorQuizAnswer a60 = createColorQuizAnswer("respectful", "blue", "positive");
+            return new HashSet<>(Arrays.asList(a57, a58, a59, a60));
+
+        }if(questionNumber == 16){
+            ColorQuizAnswer a61 = createColorQuizAnswer("jealous", "blue", "negative");
+            ColorQuizAnswer a62 = createColorQuizAnswer("reluctant", "white", "negative");
+            ColorQuizAnswer a63 = createColorQuizAnswer("argumentative", "red", "negative");
+            ColorQuizAnswer a64 = createColorQuizAnswer("obnoxious", "yellow", "negative");
+            return new HashSet<>(Arrays.asList(a61, a62, a63, a64));
+
+        }if(questionNumber == 17){
+            ColorQuizAnswer a65 = createColorQuizAnswer("even-tempered", "white", "positive");
+            ColorQuizAnswer a66 = createColorQuizAnswer("engaging", "yellow", "positive");
+            ColorQuizAnswer a67 = createColorQuizAnswer("dependable", "blue", "positive");
+            ColorQuizAnswer a68 = createColorQuizAnswer("focused", "red", "positive");
+            return new HashSet<>(Arrays.asList(a65, a66, a67, a68));
+
+        }if(questionNumber == 18){
+            ColorQuizAnswer a69 = createColorQuizAnswer("overly aggressive", "red", "negative");
+            ColorQuizAnswer a70 = createColorQuizAnswer("low self-esteem", "blue", "negative");
+            ColorQuizAnswer a71 = createColorQuizAnswer("ambivalent", "white", "negative");
+            ColorQuizAnswer a72 = createColorQuizAnswer("inconsistent", "yellow", "negative");
+            return new HashSet<>(Arrays.asList(a69, a70, a71, a72));
+
+        }if(questionNumber == 19){
+            ColorQuizAnswer a73 = createColorQuizAnswer("deliberate", "blue", "positive");
+            ColorQuizAnswer a74 = createColorQuizAnswer("powerful", "red", "positive");
+            ColorQuizAnswer a75 = createColorQuizAnswer("balanced", "white", "positive");
+            ColorQuizAnswer a76 = createColorQuizAnswer("persuasive", "yellow", "positive");
+            return new HashSet<>(Arrays.asList(a73, a74, a75, a76));
+
+        }if(questionNumber == 20){
+            ColorQuizAnswer a77 = createColorQuizAnswer("undisciplined", "yellow", "negative");
+            ColorQuizAnswer a78 = createColorQuizAnswer("timid", "white", "negative");
+            ColorQuizAnswer a79 = createColorQuizAnswer("insensitive", "red", "negative");
+            ColorQuizAnswer a80 = createColorQuizAnswer("judgmental", "blue", "negative");
+            return new HashSet<>(Arrays.asList(a77, a78, a79, a80));
+
+        }if(questionNumber == 21){
+            ColorQuizAnswer a81 = createColorQuizAnswer("playful", "yellow", "positive");
+            ColorQuizAnswer a82 = createColorQuizAnswer("clear perspective", "white", "positive");
+            ColorQuizAnswer a83 = createColorQuizAnswer("detail conscious", "blue", "positive");
+            ColorQuizAnswer a84 = createColorQuizAnswer("clear perspective", "red", "positive");
+            return new HashSet<>(Arrays.asList(a81, a82, a83, a84));
+
+        }if(questionNumber == 22){
+            ColorQuizAnswer a85 = createColorQuizAnswer("always right", "red", "negative");
+            ColorQuizAnswer a86 = createColorQuizAnswer("uncommitted", "yellow", "negative");
+            ColorQuizAnswer a87 = createColorQuizAnswer("uninvolved", "white", "negative");
+            ColorQuizAnswer a88 = createColorQuizAnswer("guilt prone", "blue", "negative");
+            return new HashSet<>(Arrays.asList(a85, a86, a87, a88));
+
+        }if(questionNumber == 23){
+            ColorQuizAnswer a89 = createColorQuizAnswer("accepting", "white", "positive");
+            ColorQuizAnswer a90 = createColorQuizAnswer("spontaneous", "yellow", "positive");
+            ColorQuizAnswer a91 = createColorQuizAnswer("pragmatic", "red", "positive");
+            ColorQuizAnswer a92 = createColorQuizAnswer("well-mannered", "blue", "positive");
+            return new HashSet<>(Arrays.asList(a89, a90, a91, a92));
+
+        }if(questionNumber == 24){
+            ColorQuizAnswer a93 = createColorQuizAnswer("disorganized", "yellow", "negative");
+            ColorQuizAnswer a94 = createColorQuizAnswer("selfish", "red", "negative");
+            ColorQuizAnswer a95 = createColorQuizAnswer("emotionaly intense", "blue", "negative");
+            ColorQuizAnswer a96 = createColorQuizAnswer("detached", "white", "negative");
+            return new HashSet<>(Arrays.asList(a93, a94, a95, a96));
+
+        }if(questionNumber == 25){
+            ColorQuizAnswer a97 = createColorQuizAnswer("motivated", "red", "positive");
+            ColorQuizAnswer a98 = createColorQuizAnswer("sincere", "blue", "positive");
+            ColorQuizAnswer a99 = createColorQuizAnswer("diplomatic", "white", "positive");
+            ColorQuizAnswer a100 = createColorQuizAnswer("engaging of others", "yellow", "positive");
+            return new HashSet<>(Arrays.asList(a97, a98, a99, a100));
+
+        }if(questionNumber == 26){
+            ColorQuizAnswer a101 = createColorQuizAnswer("forgetful", "yellow", "negative");
+            ColorQuizAnswer a102 = createColorQuizAnswer("boring", "white", "negative");
+            ColorQuizAnswer a103 = createColorQuizAnswer("hard to please", "blue", "negative");
+            ColorQuizAnswer a104 = createColorQuizAnswer("tactless", "red", "negative");
+            return new HashSet<>(Arrays.asList(a101, a102, a103, a104));
+
+        }if(questionNumber == 27){
+            ColorQuizAnswer a105 = createColorQuizAnswer("articulate", "red", "positive");
+            ColorQuizAnswer a106 = createColorQuizAnswer("quality-oriented", "blue", "positive");
+            ColorQuizAnswer a107 = createColorQuizAnswer("centered", "white", "positive");
+            ColorQuizAnswer a108 = createColorQuizAnswer("forgiving", "yellow", "positive");
+            return new HashSet<>(Arrays.asList(a105, a106, a107, a108));
+
+        }if(questionNumber == 28){
+            ColorQuizAnswer a109 = createColorQuizAnswer("self-centered", "yellow", "negative");
+            ColorQuizAnswer a110 = createColorQuizAnswer("calculating", "red", "negative");
+            ColorQuizAnswer a111 = createColorQuizAnswer("self-righteous", "blue", "negative");
+            ColorQuizAnswer a112 = createColorQuizAnswer("unexpressive", "white", "negative");
+            return new HashSet<>(Arrays.asList(a109, a110, a111, a112));
+
+        }if(questionNumber == 29){
+            ColorQuizAnswer a113 = createColorQuizAnswer("self-regulated", "white", "positive");
+            ColorQuizAnswer a114 = createColorQuizAnswer("charismatic", "yellow", "positive");
+            ColorQuizAnswer a115 = createColorQuizAnswer("confident", "red", "positive");
+            ColorQuizAnswer a116 = createColorQuizAnswer("intuitive", "blue", "positive");
+            return new HashSet<>(Arrays.asList(a113, a114, a115, a116));
+
+        }if(questionNumber == 30) {
+            ColorQuizAnswer a117 = createColorQuizAnswer("unrealistic expectations", "blue", "negative");
+            ColorQuizAnswer a118 = createColorQuizAnswer("unproductive", "white", "negative");
+            ColorQuizAnswer a119 = createColorQuizAnswer("afraid to face facts", "yellow", "negative");
+            ColorQuizAnswer a120 = createColorQuizAnswer("intimidating", "red", "negative");
+            return new HashSet<>(Arrays.asList(a117, a118, a119, a120));
         }
         return null;
 //

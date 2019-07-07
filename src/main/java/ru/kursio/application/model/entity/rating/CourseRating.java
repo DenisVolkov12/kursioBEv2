@@ -1,10 +1,8 @@
-package ru.kursio.application.model.entity.ranking;
+package ru.kursio.application.model.entity.rating;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import ru.kursio.application.model.entity.auth.User;
 import ru.kursio.application.model.entity.course.Category;
 import ru.kursio.application.model.entity.course.Review;
-import ru.kursio.application.model.entity.enumeration.RankingStar;
 
 import javax.persistence.*;
 import java.util.List;
